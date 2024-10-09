@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 export default function WorkoutsPage() {
   const [workouts, setWorkouts] = useState([])
   console.log('🚀 || WorkoutsPage || workouts:', workouts)
-
+  
   useEffect(() => {
     async function fetchWorkouts() {
       const res = await fetch('/api/workouts')
