@@ -38,6 +38,13 @@ const createWorkout: React.FC<WorkoutProps> = ({
   const numberOfWorkouts = 6
   const exercisesPerWorkout = 6
 
+  const splitTypes = [
+    'Push/Pull',
+    'Upper/Lower',
+    'Full Body',
+    'Bro Split',
+  ]
+
   // Group exercises by body part.
   const bodyPartExercises = mapExercisesToBodyPart(exercises)
 
@@ -55,7 +62,7 @@ const createWorkout: React.FC<WorkoutProps> = ({
   // If the number of workouts is less than the number of body parts,
   // then each workout should contain bodyParts divided by the number of workouts amount of body parts per workout.
   if (numberOfWorkouts < bodyPartExercises.length) {
-    
+
   }
 
   return workouts
