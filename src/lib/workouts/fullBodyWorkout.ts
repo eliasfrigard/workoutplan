@@ -27,10 +27,12 @@ export const fullBodyWorkout = ({
       if (workout.exercises.length < numberOfExercises) {
         const exerciseToAdd = exercises[exerciseIndex]
 
-        if (!workout.exercises.some(e => e.id === exerciseToAdd.id)) {
-          workout.exercises.push(exerciseToAdd)
+        if (workout.exercises.some(e => e.id === exerciseToAdd.id)) {
           exerciseIndex = (exerciseIndex + 1) % exercises.length
+          continue
         }
+
+        workout.exercises.push(exerciseToAdd)
       }
     }
   })
