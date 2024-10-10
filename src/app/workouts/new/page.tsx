@@ -53,9 +53,9 @@ export default function Example() {
         .map((exercise) => ({
           ...exercise,
           bodyPart: bodyPart.name, // Add the bodyPartId to the exercise
-        }));
-      return [...acc, ...selected];
-    }, []);
+        }))
+      return [...acc, ...selected]
+    }, [])
   
     createWorkout({ exercises: selectedExercises })
   }  

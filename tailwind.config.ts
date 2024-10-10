@@ -18,5 +18,5 @@ const config: Config = {
   plugins: [
     form,
   ],
-};
-export default config;
+}
+export default config

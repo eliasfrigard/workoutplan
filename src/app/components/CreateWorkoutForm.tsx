@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 
 interface CreateWorkoutFormProps {
@@ -337,7 +337,7 @@ const CreateWorkoutForm: React.FC<CreateWorkoutFormProps> = (props) => {
         </button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default CreateWorkoutForm;
+export default CreateWorkoutForm

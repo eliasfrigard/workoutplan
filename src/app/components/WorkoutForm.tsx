@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-export default function WorkoutForm({ existingWorkout }: { existingWorkout?: { id: number; day: string; exerciseIds: number[] } }) {
+export default function WorkoutForm({ existingWorkout }: { existingWorkout?: { id: number, day: string, exerciseIds: number[] } }) {
   const [day, setDay] = useState(existingWorkout?.day || '')
   const [exerciseIds, setExerciseIds] = useState(existingWorkout?.exerciseIds || [])
   const [exercises, setExercises] = useState([]) // State to hold exercises

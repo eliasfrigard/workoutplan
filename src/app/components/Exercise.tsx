@@ -5,7 +5,7 @@ interface ExerciseProps {
   name: string
   selected: boolean
   bodyPartId: number
-  toggleSelected: (id: number, bodyPartId: number) => void;
+  toggleSelected: (id: number, bodyPartId: number) => void
 }
 
 const ExerciseComponent: React.FC<ExerciseProps> = ({ id, name, selected, bodyPartId, toggleSelected }) => {
@@ -16,7 +16,7 @@ const ExerciseComponent: React.FC<ExerciseProps> = ({ id, name, selected, bodyPa
     >
       <h2>{name}</h2>
     </div>
-  );
-};
+  )
+}
 
 export default ExerciseComponent

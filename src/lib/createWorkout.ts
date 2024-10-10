@@ -1,6 +1,6 @@
 import type { Exercise } from '@/types'
 
-import { fullBodyWorkout } from './workouts/fullBodyWorkout';
+import { fullBodyWorkout } from './workouts/fullBodyWorkout'
 
 interface LocalExercise {
   id: number
@@ -25,12 +25,12 @@ const mapExercisesToBodyPart = (exercises: LocalExercise[]): BodyPartExecises[] 
     }
     acc[exercise.bodyPart].push(exercise)
     return acc
-  }, {} as Record<string, LocalExercise[]>); // Explicitly define the type for clarity
+  }, {} as Record<string, LocalExercise[]>) // Explicitly define the type for clarity
 
   return Object.entries(bodyPartExercises).map(([bodyPart, exercises]) => ({
     bodyPart,
     exercises,
-  }));
+  }))
 }
 
 const createWorkout: React.FC<WorkoutProps> = ({
