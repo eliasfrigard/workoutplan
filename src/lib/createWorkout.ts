@@ -1,5 +1,7 @@
 import type { Exercise } from '@/types'
 
+import { fullBodyWorkout } from './workouts/fullBodyWorkout';
+
 interface LocalExercise {
   id: number
   name: string
@@ -38,12 +40,20 @@ const createWorkout: React.FC<WorkoutProps> = ({
   const numberOfWorkouts = 6
   const exercisesPerWorkout = 6
 
-  const splitTypes = [
-    'Push/Pull',
-    'Upper/Lower',
-    'Full Body',
-    'Bro Split',
-  ]
+  // const splitTypes = [
+  //   'Push/Pull',
+  //   'Upper/Lower',
+  //   'Full Body',
+  //   'Bro Split',
+  // ]
+
+  const fullBodyWorkouts = fullBodyWorkout({
+    exercisesByBodyPart: mapExercisesToBodyPart(exercises),
+    numberOfWorkouts,
+    numberOfExercises: exercisesPerWorkout
+  })
+
+  console.log(fullBodyWorkouts)
 
   // Group exercises by body part.
   const bodyPartExercises = mapExercisesToBodyPart(exercises)

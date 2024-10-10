@@ -17,19 +17,20 @@ export const fullBodyWorkout = ({
     exercises: []
   }))
 
-  // TODO: Favor compound exercises.
   exercisesByBodyPart.forEach((bodyPart) => {
-    const bodyPartExercises = exercisesByBodyPart[bodyPart.bodyPart]
+    const exercises = bodyPart.exercises
     let exerciseIndex = 0
 
-    // For each workout, assign an exercise from the current body part
     for (let i = 0; i < numberOfWorkouts; i++) {
       const workout = workouts[i]
 
-      // Add exercise for this body part, rotating through available exercises
       if (workout.exercises.length < numberOfExercises) {
-        workout.exercises.push(bodyPartExercises[exerciseIndex])
-        exerciseIndex = (exerciseIndex + 1) % bodyPartExercises.length // Rotate through exercises
+        const exerciseToAdd = exercises[exerciseIndex]
+
+        if (!workout.exercises.some(e => e.id === exerciseToAdd.id)) {
+          workout.exercises.push(exerciseToAdd)
+          exerciseIndex = (exerciseIndex + 1) % exercises.length
+        }
       }
     }
   })
