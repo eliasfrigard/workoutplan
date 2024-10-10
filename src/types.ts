@@ -3,3 +3,9 @@ export type Exercise = {
   name: string;
   selected?: boolean;
 }
+
+export type BodyPart = {
+  id: number;
+  name: string;
+  exercises: Exercise[];
+}

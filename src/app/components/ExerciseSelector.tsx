@@ -1,32 +1,40 @@
 import React from 'react'
-import type { Exercise } from '@/types'
+import type { BodyPart } from '@/types'
 import ExerciseComponent from '@/app/components/Exercise'
 
 interface ExerciseSelectorProps {
-  exercises: Exercise[]
-  toggleSelected: (id: number) => void;
+  bodyParts: BodyPart[]
+  toggleSelected: (id: number, bodyPartId: number) => void
 }
 
 const ExerciseSelector: React.FC<ExerciseSelectorProps> = (props) => {
   return (
-    <div>
+    <div className='container w-full'>
       <h1>Exercise Selector</h1>
 
-      <div className='grid grid-cols-3 gap-4'>
-        {
-          props.exercises.map((exercise) => (
-            <ExerciseComponent 
-              key={exercise.id} 
-              id={exercise.id} 
-              name={exercise.name}
-              selected={exercise.selected}
-              toggleSelected={props.toggleSelected}
-            />
-          ))
-        }
-      </div>
+      {
+        props.bodyParts.map((bodyPart) => (
+          <div key={bodyPart.id}>
+            <h2 className='text-2xl font-bold'>{bodyPart.name}</h2>
+            <div className='grid grid-cols-3 gap-4'>
+              {
+                bodyPart.exercises.map((exercise) => (
+                  <ExerciseComponent 
+                    key={exercise.id} 
+                    id={exercise.id}
+                    bodyPartId={bodyPart.id}
+                    name={exercise.name}
+                    selected={exercise.selected}
+                    toggleSelected={props.toggleSelected}
+                  />
+                ))
+              }
+            </div>
+          </div>
+        ))
+      }
     </div>
-  );
-};
+  )
+}
 
-export default ExerciseSelector;
+export default ExerciseSelector
